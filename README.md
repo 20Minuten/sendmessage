@@ -58,7 +58,8 @@ TwentyWindow.send({
         "domain": "https://m.20min.ch:80",
         "message": "triggerlogin"
 });
-``
+```
+
 *Type*
 Exactly equal to "sendmessage"
 
