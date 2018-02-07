@@ -53,9 +53,9 @@ by building the payload yourself as a response to a user event.
 Send the message like this:
 
 ```
-TwentyWindow.send({
+Twenty.Sendmessage.send({
         "type": "sendmessage",
-        "domain": "https://m.20min.ch:80",
+        "domain": "https://m.20min.ch",
         "message": "triggerlogin"
 });
 ```
@@ -69,23 +69,24 @@ For security, we expect this to include the HTML5 triple check location of where
 content will be hosted. This is not the same as the `origin` check that we also perform, and
 is  required.
 HTML5 domain triple check location is a string of the full domain including protocol,
-server and port.
+server and port. Omit the port if the protocol is `http` and the port is `80`, or if the protocol is `https` and the port is `443`.
 In this example set, none of the following is equivalent (they are all different), and
 none of them is valid
 ```
 20min.ch
 www.20min.ch
-http://www.20min.ch
-http://m.20min.ch
-https://m.20min.ch
+http://www.20min.ch:80
+https://www.20minuten.ch:443
 www.20min.ch:80
 m.20min.ch:80
 ```
 All of the following set are valid. None of them is equivalent:
 ```
-http://www.20min.ch:80
-http://www.20minuten.ch:80
-http://m.20minuten.ch:80
+http://www.20min.ch
+http://www.20min.ch:443
+http://www.20minuten.ch
+http://m.20minuten.ch
+https://www.20minuten.ch
 https://www.20minuten.ch:80
 https://m.20min.ch:80
 https://m.20minuten.ch:8000

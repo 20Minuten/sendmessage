@@ -2,17 +2,17 @@
  * iFrame Send Message
  * by Tamedia | Webclients Team
  * 
- * @name TwentyWindow
+ * @name Twenty.Sendmessage
  * @class
  */
-TwentyWindow = (function(){
+(function(Twenty){
     // maybe we want to make this more specific in the future
     var targetWindow = window.parent,
         targetOrigin = "*";
 
     /**
-     * @alias TwentyWindow.send
-     * @memberof TwentyWindow
+     * @alias Twenty.Sendmessage.send
+     * @memberof Twenty.Sendmessage
      * @description Send message across the universe
      * @param {Object} data - Data to send
      * @param {String} data.type - Type (should be sendmessage)
@@ -23,7 +23,7 @@ TwentyWindow = (function(){
         targetWindow.postMessage(data, targetOrigin);
     }
 
-    return {
+    Twenty.Sendmessage = {
         send: send
     };
-})();
+})(window.Twenty = window.Twenty || {});
